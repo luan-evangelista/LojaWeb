@@ -1,7 +1,7 @@
 import React from 'react';
 import { MdRemoveCircleOutline, MdAddCircleOutline, MdDelete } from 'react-icons/md';
 
-import { Container, ProductTable, Total } from './styles'; 
+import { Container, ProductTable, Total } from './styles';
 
 export default function Cart() {
     return (
@@ -19,8 +19,8 @@ export default function Cart() {
                 <tbody>
                     <tr>
                         <td>
-                            <img 
-                                src="https://images.lojanike.com.br/1024x1024/produto/tenis-nike-renew-run-masculino-CK6357-002-1.jpg" 
+                            <img
+                                src="https://images.lojanike.com.br/1024x1024/produto/tenis-nike-renew-run-masculino-CK6357-002-1.jpg"
                                 alt="Tênis" />
                         </td>
                         <td>
@@ -29,13 +29,13 @@ export default function Cart() {
                         </td>
                         <td>
                             <div>
-                            <button type="button">
-                                <MdRemoveCircleOutline size={20} color="#7159c1" />
-                            </button>
-                            <input type="number" readOnly value={2} />
-                            <button type="button">
-                                <MdAddCircleOutline size={20} color="#7159c1" />
-                            </button>
+                                <button type="button">
+                                    <MdRemoveCircleOutline size={20} color="#7159c1" />
+                                </button>
+                                <input type="number" readOnly value={2} />
+                                <button type="button">
+                                    <MdAddCircleOutline size={20} color="#7159c1" />
+                                </button>
                             </div>
                         </td>
                         <td>
