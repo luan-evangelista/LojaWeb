@@ -8,7 +8,7 @@ export const Container = styled.header`
     margin: 50px 0;
 `;
 
-export const Cart = styled(Link)`
+export const Cart = styled (Link)`
     display: flex;
     align-items: center;
     text-decoration: none;
