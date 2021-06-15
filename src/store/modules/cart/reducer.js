@@ -23,6 +23,19 @@ export default function cart(state = [], action) {
                     draft.splice(productsIndex, 1);
                 }
             });
+        case '@cart/UPDATE_AMOUNT': {
+            if (action.amount <= 0) {
+                return state;
+            }
+
+            return produce(state, draft => {
+                const productsIndex = draft.findIndex(p => p.id === action.id);
+
+                if (productsIndex >= 0) {
+                    draft[productsIndex].amount = Number(action.amount);
+                }
+            });
+        }
         default:
             return state;
     }
