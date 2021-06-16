@@ -7,8 +7,6 @@ import api from '../../services/api';
 
 import * as CartActions from '../../store/modules/cart/actions';
 
-
-
 import { ProductList } from './styles';
 
 class Home extends Component {
@@ -35,6 +33,7 @@ class Home extends Component {
 
     render() {
         const { products } = this.state;
+        const { amount } = this.props;
 
         return (
             <ProductList>
@@ -46,7 +45,8 @@ class Home extends Component {
 
                         <button type="button" onClick={() => this.handleAddProduct(products)}>
                             <div>
-                                <MdAddShoppingCart size={16} color="#FFF" /> 3
+                                <MdAddShoppingCart size={16} color="#FFF" /> {' '}
+                                {amount[products.id] || 0}
                             </div>
 
                             <span>ADICIONAR AO CARRINHO</span>
@@ -58,10 +58,18 @@ class Home extends Component {
     }
 }
 
+const mapStateToProps = state => ({
+    amount: state.cart.reduce((amount, products) => {
+        amount[products.id] = products.amount;
+
+        return amount;
+    }, {}),
+});
+
 const mapDispatchToProps = dispatch =>
     bindActionCreators(CartActions, dispatch);
 
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(Home);
